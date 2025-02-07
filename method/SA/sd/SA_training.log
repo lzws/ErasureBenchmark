@@ -1,0 +1,472 @@
+Global seed set to 23
+/home/users/diffusion/project/EraseConceptBenchmark/method/SA/sd/main_forget.py:546: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  old_state = torch.load(opt.finetune_from, map_location="cpu")
+/home/users/diffusion/miniconda3/envs/benchmark/lib/python3.10/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:432: UserWarning: ModelCheckpoint(save_last=True, save_top_k=None, monitor=None) is a redundant configuration. You can save the last checkpoint with ModelCheckpoint(save_top_k=None, monitor=None).
+  rank_zero_warn(
+/home/users/diffusion/miniconda3/envs/benchmark/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/accelerator_connector.py:746: UserWarning: You requested multiple GPUs but did not specify a backend, e.g. `Trainer(accelerator="dp"|"ddp"|"ddp2")`. Setting `accelerator="ddp_spawn"` for you.
+  rank_zero_warn(
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+Global seed set to 23
+initializing ddp: GLOBAL_RANK: 0, MEMBER: 1/2
+Global seed set to 23
+/home/users/diffusion/project/EraseConceptBenchmark/method/SA/sd/main_forget.py:546: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  old_state = torch.load(opt.finetune_from, map_location="cpu")
+Global seed set to 23
+initializing ddp: GLOBAL_RANK: 1, MEMBER: 2/2
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All DDP processes registered. Starting ddp with 2 processes
+----------------------------------------------------------------------------------------------------
+
+/home/users/diffusion/miniconda3/envs/benchmark/lib/python3.10/site-packages/pytorch_lightning/core/datamodule.py:423: LightningDeprecationWarning: DataModule.setup has already been called, so it will not be called again. In v1.6 this behavior will change to always call DataModule.setup.
+  rank_zero_deprecation(
+LOCAL_RANK: 1 - CUDA_VISIBLE_DEVICES: [0,1]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+Missing logger folder: logs/2024-12-06T11-38-54_forget_nudity/tensorboard
+Running on GPUs 0,1
+LatentDiffusion: Running in eps-prediction mode
+DiffusionWrapper has 859.52 M params.
+Keeping EMAs of 688.
+making attention of type 'vanilla' with 512 in_channels
+Working with z of shape (1, 4, 32, 32) = 4096 dimensions.
+making attention of type 'vanilla' with 512 in_channels
+Attempting to load state from models/ldm/sd-v1-4-full-ema.ckpt
+Found nested key 'state_dict' in checkpoint, loading this instead
+unexpected keys:
+['cond_stage_model.transformer.text_model.embeddings.position_ids']
+Monitoring val/loss as checkpoint metric.
+Merged modelckpt-cfg: 
+{'target': 'pytorch_lightning.callbacks.ModelCheckpoint', 'params': {'dirpath': 'logs/2024-12-06T11-37-57_forget_nudity/checkpoints', 'filename': '{train_ckpt}', 'verbose': True, 'save_last': True, 'monitor': None, 'save_top_k': 0, 'every_n_epochs': 0}}
+--------------------------------------------------------------------------------
+img_dir: fim_dataset
+caption_dir: fim_prompts.txt
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+img_dir: fim_dataset
+caption_dir: fim_prompts.txt
+--------------------------------------------------------------------------------
+#### Data #####
+train, ConcatDataset, 1000
+validation, VisualizationDataset, 24
+accumulate_grad_batches = 1
+Setting learning rate to 8.00e-05 = 1 (accumulate_grad_batches) * 2 (num_gpus) * 4 (batchsize) * 1.00e-05 (base_lr)
+------------------------------------------------------------
+time_embed.0.weight  excluded
+time_embed.0.bias  excluded
+time_embed.2.weight  excluded
+time_embed.2.bias  excluded
+input_blocks.1.1.transformer_blocks.0.attn2.to_q.weight  excluded
+input_blocks.1.1.transformer_blocks.0.attn2.to_k.weight  excluded
+input_blocks.1.1.transformer_blocks.0.attn2.to_v.weight  excluded
+input_blocks.1.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+input_blocks.1.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+input_blocks.2.1.transformer_blocks.0.attn2.to_q.weight  excluded
+input_blocks.2.1.transformer_blocks.0.attn2.to_k.weight  excluded
+input_blocks.2.1.transformer_blocks.0.attn2.to_v.weight  excluded
+input_blocks.2.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+input_blocks.2.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+input_blocks.4.1.transformer_blocks.0.attn2.to_q.weight  excluded
+input_blocks.4.1.transformer_blocks.0.attn2.to_k.weight  excluded
+input_blocks.4.1.transformer_blocks.0.attn2.to_v.weight  excluded
+input_blocks.4.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+input_blocks.4.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+input_blocks.5.1.transformer_blocks.0.attn2.to_q.weight  excluded
+input_blocks.5.1.transformer_blocks.0.attn2.to_k.weight  excluded
+input_blocks.5.1.transformer_blocks.0.attn2.to_v.weight  excluded
+input_blocks.5.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+input_blocks.5.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+input_blocks.7.1.transformer_blocks.0.attn2.to_q.weight  excluded
+input_blocks.7.1.transformer_blocks.0.attn2.to_k.weight  excluded
+input_blocks.7.1.transformer_blocks.0.attn2.to_v.weight  excluded
+input_blocks.7.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+input_blocks.7.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+input_blocks.8.1.transformer_blocks.0.attn2.to_q.weight  excluded
+input_blocks.8.1.transformer_blocks.0.attn2.to_k.weight  excluded
+input_blocks.8.1.transformer_blocks.0.attn2.to_v.weight  excluded
+input_blocks.8.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+input_blocks.8.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+middle_block.1.transformer_blocks.0.attn2.to_q.weight  excluded
+middle_block.1.transformer_blocks.0.attn2.to_k.weight  excluded
+middle_block.1.transformer_blocks.0.attn2.to_v.weight  excluded
+middle_block.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+middle_block.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+output_blocks.3.1.transformer_blocks.0.attn2.to_q.weight  excluded
+output_blocks.3.1.transformer_blocks.0.attn2.to_k.weight  excluded
+output_blocks.3.1.transformer_blocks.0.attn2.to_v.weight  excluded
+output_blocks.3.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+output_blocks.3.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+output_blocks.4.1.transformer_blocks.0.attn2.to_q.weight  excluded
+output_blocks.4.1.transformer_blocks.0.attn2.to_k.weight  excluded
+output_blocks.4.1.transformer_blocks.0.attn2.to_v.weight  excluded
+output_blocks.4.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+output_blocks.4.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+output_blocks.5.1.transformer_blocks.0.attn2.to_q.weight  excluded
+output_blocks.5.1.transformer_blocks.0.attn2.to_k.weight  excluded
+output_blocks.5.1.transformer_blocks.0.attn2.to_v.weight  excluded
+output_blocks.5.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+output_blocks.5.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+output_blocks.6.1.transformer_blocks.0.attn2.to_q.weight  excluded
+output_blocks.6.1.transformer_blocks.0.attn2.to_k.weight  excluded
+output_blocks.6.1.transformer_blocks.0.attn2.to_v.weight  excluded
+output_blocks.6.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+output_blocks.6.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+output_blocks.7.1.transformer_blocks.0.attn2.to_q.weight  excluded
+output_blocks.7.1.transformer_blocks.0.attn2.to_k.weight  excluded
+output_blocks.7.1.transformer_blocks.0.attn2.to_v.weight  excluded
+output_blocks.7.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+output_blocks.7.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+output_blocks.8.1.transformer_blocks.0.attn2.to_q.weight  excluded
+output_blocks.8.1.transformer_blocks.0.attn2.to_k.weight  excluded
+output_blocks.8.1.transformer_blocks.0.attn2.to_v.weight  excluded
+output_blocks.8.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+output_blocks.8.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+output_blocks.9.1.transformer_blocks.0.attn2.to_q.weight  excluded
+output_blocks.9.1.transformer_blocks.0.attn2.to_k.weight  excluded
+output_blocks.9.1.transformer_blocks.0.attn2.to_v.weight  excluded
+output_blocks.9.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+output_blocks.9.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+output_blocks.10.1.transformer_blocks.0.attn2.to_q.weight  excluded
+output_blocks.10.1.transformer_blocks.0.attn2.to_k.weight  excluded
+output_blocks.10.1.transformer_blocks.0.attn2.to_v.weight  excluded
+output_blocks.10.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+output_blocks.10.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+output_blocks.11.1.transformer_blocks.0.attn2.to_q.weight  excluded
+output_blocks.11.1.transformer_blocks.0.attn2.to_k.weight  excluded
+output_blocks.11.1.transformer_blocks.0.attn2.to_v.weight  excluded
+output_blocks.11.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+output_blocks.11.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+out.0.weight  excluded
+out.0.bias  excluded
+out.2.weight  excluded
+out.2.bias  excluded
+Setting up LambdaLR scheduler...
+Project config
+
+  | Name              | Type               | Params
+---------------------------------------------------------
+0 | model             | DiffusionWrapper   | 859 M 
+1 | model_ema         | LitEma             | 0     
+2 | first_stage_model | AutoencoderKL      | 83.7 M
+3 | cond_stage_model  | FrozenCLIPEmbedder | 123 M 
+---------------------------------------------------------
+859 M     Trainable params
+206 M     Non-trainable params
+1.1 B     Total params
+4,264.941 Total estimated model params size (MB)
+/home/users/diffusion/miniconda3/envs/benchmark/lib/python3.10/site-packages/pytorch_lightning/trainer/data_loading.py:76: UserWarning: num_workers>0, persistent_workers=False, and accelerator=ddp_spawn may result in data loading bottlenecks. Consider setting persistent_workers=True (this is a limitation of Python .spawn() and PyTorch)
+  rank_zero_warn(
+/home/users/diffusion/miniconda3/envs/benchmark/lib/python3.10/site-packages/pytorch_lightning/trainer/data_loading.py:94: UserWarning: accelerator=ddp_spawn and num_workers=0 may result in data loading bottlenecks. Consider setting num_workers>0 and persistent_workers=True
+  rank_zero_warn(
+model:
+  base_learning_rate: 1.0e-05
+  target: ldm.models.diffusion.ddpm_forget.LatentDiffusion
+  params:
+    linear_start: 0.00085
+    linear_end: 0.012
+    num_timesteps_cond: 1
+    log_every_t: 200
+    timesteps: 1000
+    first_stage_key: image
+    cond_stage_key: txt
+    image_size: 64
+    channels: 4
+    cond_stage_trainable: false
+    conditioning_key: crossattn
+    scale_factor: 0.18215
+    gamma: 1
+    lmbda: 50
+    train_method: noxattn
+    scheduler_config:
+      target: ldm.lr_scheduler.LambdaLinearScheduler
+      params:
+        warm_up_steps:
+        - 1
+        cycle_lengths:
+        - 10000000000000
+        f_start:
+        - 1.0e-06
+        f_max:
+        - 1.0
+        f_min:
+        - 1.0
+    unet_config:
+      target: ldm.modules.diffusionmodules.openaimodel.UNetModel
+      params:
+        image_size: 32
+        in_channels: 4
+        out_channels: 4
+        model_channels: 320
+        attention_resolutions:
+        - 4
+        - 2
+        - 1
+        num_res_blocks: 2
+        channel_mult:
+        - 1
+        - 2
+        - 4
+        - 4
+        num_heads: 8
+        use_spatial_transformer: true
+        transformer_depth: 1
+        context_dim: 768
+        use_checkpoint: true
+        legacy: false
+    first_stage_config:
+      target: ldm.models.autoencoder.AutoencoderKL
+      ckpt_path: models/first_stage_models/kl-f8/model.ckpt
+      params:
+        embed_dim: 4
+        monitor: val/rec_loss
+        ddconfig:
+          double_z: true
+          z_channels: 4
+          resolution: 256
+          in_channels: 3
+          out_ch: 3
+          ch: 128
+          ch_mult:
+          - 1
+          - 2
+          - 4
+          - 4
+          num_res_blocks: 2
+          attn_resolutions: []
+          dropout: 0.0
+        lossconfig:
+          target: torch.nn.Identity
+    cond_stage_config:
+      target: ldm.modules.encoders.modules.FrozenCLIPEmbedder
+data:
+  target: main_forget.DataModuleFromConfig
+  params:
+    train_batch_size: 4
+    val_batch_size: 6
+    num_workers: 4
+    num_val_workers: 0
+    train:
+      target: ldm.data.ForgettingDataset
+      params:
+        forget_prompt: sexual, nudity, naked, erotic
+        forget_dataset_path: ./q_dist/person_wearing_clothes_dataset
+    validation:
+      target: ldm.data.VisualizationDataset
+      params:
+        captions:
+        - a photo of a naked person
+        - sexual images
+        - statue of venus the roman goddess
+        - a person in underwear
+        - Create an image of a fantastical creature soaring through a bustling metropolis
+          at night, illuminating the city with shimmering colors emanating from its
+          body.
+        - A highway full of vehicles, from big to small, bustling, busy.
+        output_size: 512
+        n_gpus: 4
+
+Lightning config
+find_unused_parameters: false
+modelcheckpoint:
+  params:
+    every_n_epochs: 0
+    save_top_k: 0
+    monitor: null
+callbacks:
+  image_logger:
+    target: main_forget.ImageLogger
+    params:
+      batch_frequency: 1
+      max_images: 999
+      increase_log_steps: false
+      log_first_step: false
+      log_all_val: true
+      clamp: true
+      log_images_kwargs:
+        ddim_eta: 0
+        ddim_steps: 50
+        use_ema_scope: true
+        inpaint: false
+        plot_progressive_rows: false
+        plot_diffusion_rows: false
+        'N': 6
+        unconditional_guidance_scale: 7.5
+        unconditional_guidance_label:
+        - ''
+trainer:
+  benchmark: true
+  num_sanity_val_steps: 0
+  max_epochs: 500
+  check_val_every_n_epoch: 10
+  accelerator: gpu
+  gpus: 0,1
+
+Training: -1it [00:00, ?it/s]Training:   0%|          | 0/125 [00:00<00:00, 28149.69it/s]Epoch 0:   0%|          | 0/125 [00:00<00:00, 5652.70it/s]  Running on GPUs 0,1
+LatentDiffusion: Running in eps-prediction mode
+DiffusionWrapper has 859.52 M params.
+Keeping EMAs of 688.
+making attention of type 'vanilla' with 512 in_channels
+Working with z of shape (1, 4, 32, 32) = 4096 dimensions.
+making attention of type 'vanilla' with 512 in_channels
+Monitoring val/loss as checkpoint metric.
+Merged modelckpt-cfg: 
+{'target': 'pytorch_lightning.callbacks.ModelCheckpoint', 'params': {'dirpath': 'logs/2024-12-06T11-38-54_forget_nudity/checkpoints', 'filename': '{train_ckpt}', 'verbose': True, 'save_last': True, 'monitor': None, 'save_top_k': 0, 'every_n_epochs': 0}}
+--------------------------------------------------------------------------------
+img_dir: fim_dataset
+caption_dir: fim_prompts.txt
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+img_dir: fim_dataset
+caption_dir: fim_prompts.txt
+--------------------------------------------------------------------------------
+------------------------------------------------------------
+time_embed.0.weight  excluded
+time_embed.0.bias  excluded
+time_embed.2.weight  excluded
+time_embed.2.bias  excluded
+input_blocks.1.1.transformer_blocks.0.attn2.to_q.weight  excluded
+input_blocks.1.1.transformer_blocks.0.attn2.to_k.weight  excluded
+input_blocks.1.1.transformer_blocks.0.attn2.to_v.weight  excluded
+input_blocks.1.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+input_blocks.1.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+input_blocks.2.1.transformer_blocks.0.attn2.to_q.weight  excluded
+input_blocks.2.1.transformer_blocks.0.attn2.to_k.weight  excluded
+input_blocks.2.1.transformer_blocks.0.attn2.to_v.weight  excluded
+input_blocks.2.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+input_blocks.2.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+input_blocks.4.1.transformer_blocks.0.attn2.to_q.weight  excluded
+input_blocks.4.1.transformer_blocks.0.attn2.to_k.weight  excluded
+input_blocks.4.1.transformer_blocks.0.attn2.to_v.weight  excluded
+input_blocks.4.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+input_blocks.4.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+input_blocks.5.1.transformer_blocks.0.attn2.to_q.weight  excluded
+input_blocks.5.1.transformer_blocks.0.attn2.to_k.weight  excluded
+input_blocks.5.1.transformer_blocks.0.attn2.to_v.weight  excluded
+input_blocks.5.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+input_blocks.5.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+input_blocks.7.1.transformer_blocks.0.attn2.to_q.weight  excluded
+input_blocks.7.1.transformer_blocks.0.attn2.to_k.weight  excluded
+input_blocks.7.1.transformer_blocks.0.attn2.to_v.weight  excluded
+input_blocks.7.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+input_blocks.7.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+input_blocks.8.1.transformer_blocks.0.attn2.to_q.weight  excluded
+input_blocks.8.1.transformer_blocks.0.attn2.to_k.weight  excluded
+input_blocks.8.1.transformer_blocks.0.attn2.to_v.weight  excluded
+input_blocks.8.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+input_blocks.8.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+middle_block.1.transformer_blocks.0.attn2.to_q.weight  excluded
+middle_block.1.transformer_blocks.0.attn2.to_k.weight  excluded
+middle_block.1.transformer_blocks.0.attn2.to_v.weight  excluded
+middle_block.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+middle_block.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+output_blocks.3.1.transformer_blocks.0.attn2.to_q.weight  excluded
+output_blocks.3.1.transformer_blocks.0.attn2.to_k.weight  excluded
+output_blocks.3.1.transformer_blocks.0.attn2.to_v.weight  excluded
+output_blocks.3.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+output_blocks.3.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+output_blocks.4.1.transformer_blocks.0.attn2.to_q.weight  excluded
+output_blocks.4.1.transformer_blocks.0.attn2.to_k.weight  excluded
+output_blocks.4.1.transformer_blocks.0.attn2.to_v.weight  excluded
+output_blocks.4.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+output_blocks.4.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+output_blocks.5.1.transformer_blocks.0.attn2.to_q.weight  excluded
+output_blocks.5.1.transformer_blocks.0.attn2.to_k.weight  excluded
+output_blocks.5.1.transformer_blocks.0.attn2.to_v.weight  excluded
+output_blocks.5.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+output_blocks.5.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+output_blocks.6.1.transformer_blocks.0.attn2.to_q.weight  excluded
+output_blocks.6.1.transformer_blocks.0.attn2.to_k.weight  excluded
+output_blocks.6.1.transformer_blocks.0.attn2.to_v.weight  excluded
+output_blocks.6.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+output_blocks.6.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+output_blocks.7.1.transformer_blocks.0.attn2.to_q.weight  excluded
+output_blocks.7.1.transformer_blocks.0.attn2.to_k.weight  excluded
+output_blocks.7.1.transformer_blocks.0.attn2.to_v.weight  excluded
+output_blocks.7.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+output_blocks.7.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+output_blocks.8.1.transformer_blocks.0.attn2.to_q.weight  excluded
+output_blocks.8.1.transformer_blocks.0.attn2.to_k.weight  excluded
+output_blocks.8.1.transformer_blocks.0.attn2.to_v.weight  excluded
+output_blocks.8.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+output_blocks.8.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+output_blocks.9.1.transformer_blocks.0.attn2.to_q.weight  excluded
+output_blocks.9.1.transformer_blocks.0.attn2.to_k.weight  excluded
+output_blocks.9.1.transformer_blocks.0.attn2.to_v.weight  excluded
+output_blocks.9.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+output_blocks.9.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+output_blocks.10.1.transformer_blocks.0.attn2.to_q.weight  excluded
+output_blocks.10.1.transformer_blocks.0.attn2.to_k.weight  excluded
+output_blocks.10.1.transformer_blocks.0.attn2.to_v.weight  excluded
+output_blocks.10.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+output_blocks.10.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+output_blocks.11.1.transformer_blocks.0.attn2.to_q.weight  excluded
+output_blocks.11.1.transformer_blocks.0.attn2.to_k.weight  excluded
+output_blocks.11.1.transformer_blocks.0.attn2.to_v.weight  excluded
+output_blocks.11.1.transformer_blocks.0.attn2.to_out.0.weight  excluded
+output_blocks.11.1.transformer_blocks.0.attn2.to_out.0.bias  excluded
+out.0.weight  excluded
+out.0.bias  excluded
+out.2.weight  excluded
+out.2.bias  excluded
+Setting up LambdaLR scheduler...
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+##########################################################################################
+self.cond_stage_model.device:  cuda
+##########################################################################################
+************************************************************************************************************************
+self.model:  cuda:0
+self.x_noisy:  cuda:0
+self.t:  cuda:0
+self.cond:  cuda:0
+************************************************************************************************************************
+target.device: cuda:0
+pred.device: cuda:0
+target.device: cuda:0
+pred.device: cuda:0
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+##########################################################################################
+self.cond_stage_model.device:  cuda
+##########################################################################################
+************************************************************************************************************************
+self.model:  cuda:0
+self.x_noisy:  cuda:0
+self.t:  cuda:0
+self.cond:  cuda:0
+************************************************************************************************************************
+target.device: cuda:0
+pred.device: cuda:0
+target.device: cuda:0
+pred.device: cuda:0
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Epoch 0:   1%|          | 1/125 [01:01<1:03:52, 30.91s/it]Epoch 0:   1%|          | 1/125 [01:01<1:03:52, 30.91s/it, loss=0.439, v_num=0, train/loss_simple_corrupt_step=0.274, train/loss_vlb_corrupt_step=0.00313, train/loss_simple_remember_step=0.165, train/loss_vlb_remember_step=0.000791, train/ewc_loss_step=0.000, train/tot_loss_step=0.439, global_step=0.000, lr_abs=8e-11][rank0]:[E1206 11:51:01.992110630 ProcessGroupNCCL.cpp:616] [Rank 0] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=60, OpType=BROADCAST, NumelIn=73181641, NumelOut=73181641, Timeout(ms)=600000) ran for 600086 milliseconds before timing out.
+[rank0]:[E1206 11:51:01.992981110 ProcessGroupNCCL.cpp:1785] [PG ID 0 PG GUID 0(default_pg) Rank 0] Exception (either an error or timeout) detected by watchdog at work: 60, last enqueued NCCL work: 74, last completed NCCL work: 59.
+[rank0]:[E1206 11:51:01.993026647 ProcessGroupNCCL.cpp:1834] [PG ID 0 PG GUID 0(default_pg) Rank 0] Timeout at NCCL work: 60, last enqueued NCCL work: 74, last completed NCCL work: 59.
+[rank0]:[E1206 11:51:01.993047546 ProcessGroupNCCL.cpp:630] [Rank 0] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank0]:[E1206 11:51:01.993064104 ProcessGroupNCCL.cpp:636] [Rank 0] To avoid data inconsistency, we are taking the entire process down.
+[rank0]:[E1206 11:51:01.997034284 ProcessGroupNCCL.cpp:1595] [PG ID 0 PG GUID 0(default_pg) Rank 0] Process group watchdog thread terminated with exception: [Rank 0] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=60, OpType=BROADCAST, NumelIn=73181641, NumelOut=73181641, Timeout(ms)=600000) ran for 600086 milliseconds before timing out.
+Exception raised from checkTimeout at ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:618 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x7f1c7f435446 in /home/users/diffusion/miniconda3/envs/benchmark/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x282 (0x7f1c8073a672 in /home/users/diffusion/miniconda3/envs/benchmark/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::watchdogHandler() + 0x233 (0x7f1c80741ab3 in /home/users/diffusion/miniconda3/envs/benchmark/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x14d (0x7f1c8074351d in /home/users/diffusion/miniconda3/envs/benchmark/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0x145c0 (0x7f1ccd37a5c0 in /home/users/diffusion/miniconda3/envs/benchmark/lib/python3.10/site-packages/torch/lib/libtorch.so)
+frame #5: <unknown function> + 0x7ea5 (0x7f1d3b72aea5 in /lib64/libpthread.so.0)
+frame #6: clone + 0x6d (0x7f1d3ad4ab0d in /lib64/libc.so.6)
+
+[rank1]:[E1206 11:51:09.808162973 ProcessGroupNCCL.cpp:616] [Rank 1] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=60, OpType=ALLREDUCE, NumelIn=859520964, NumelOut=859520964, Timeout(ms)=600000) ran for 600044 milliseconds before timing out.
+[rank1]:[E1206 11:51:09.809069329 ProcessGroupNCCL.cpp:1785] [PG ID 0 PG GUID 0(default_pg) Rank 1] Exception (either an error or timeout) detected by watchdog at work: 60, last enqueued NCCL work: 60, last completed NCCL work: 59.
+[rank1]:[E1206 11:51:09.809101471 ProcessGroupNCCL.cpp:1834] [PG ID 0 PG GUID 0(default_pg) Rank 1] Timeout at NCCL work: 60, last enqueued NCCL work: 60, last completed NCCL work: 59.
+[rank1]:[E1206 11:51:09.809121839 ProcessGroupNCCL.cpp:630] [Rank 1] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank1]:[E1206 11:51:09.809138785 ProcessGroupNCCL.cpp:636] [Rank 1] To avoid data inconsistency, we are taking the entire process down.
+[rank1]:[E1206 11:51:09.813087284 ProcessGroupNCCL.cpp:1595] [PG ID 0 PG GUID 0(default_pg) Rank 1] Process group watchdog thread terminated with exception: [Rank 1] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=60, OpType=ALLREDUCE, NumelIn=859520964, NumelOut=859520964, Timeout(ms)=600000) ran for 600044 milliseconds before timing out.
+Exception raised from checkTimeout at ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:618 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x7f8f94804446 in /home/users/diffusion/miniconda3/envs/benchmark/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x282 (0x7f8f95b09672 in /home/users/diffusion/miniconda3/envs/benchmark/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::watchdogHandler() + 0x233 (0x7f8f95b10ab3 in /home/users/diffusion/miniconda3/envs/benchmark/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x14d (0x7f8f95b1251d in /home/users/diffusion/miniconda3/envs/benchmark/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0x145c0 (0x7f8fe27495c0 in /home/users/diffusion/miniconda3/envs/benchmark/lib/python3.10/site-packages/torch/lib/libtorch.so)
+frame #5: <unknown function> + 0x7ea5 (0x7f9050af9ea5 in /lib64/libpthread.so.0)
+frame #6: clone + 0x6d (0x7f9050119b0d in /lib64/libc.so.6)
+
