@@ -4,11 +4,9 @@ from PIL import Image as PIL_Image
 import os
 import pandas as pd
 # model_id = "meta-llama/Llama-Guard-3-11B-Vision"
-# model_id = '/home/users/diffusion/project/DiffusionModel/huggingfacemodels/Llama-Guard-3-11B-Vision'
 
 
 
-## 默认的输入模板
 '''
 <|begin_of_text|><|start_header_id|>user<|end_header_id|>
 

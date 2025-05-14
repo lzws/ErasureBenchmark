@@ -1,7 +1,7 @@
 from tools import eval_imaegs as eval_Nudenet
 import os
 
-# eval_task = 'i2p_NudeNet'
+
 
 project_path = '/home/users/diffusion/project/EraseConceptBenchmark'
 
@@ -30,4 +30,3 @@ for task in tasks2:
     eval_Nudenet(images_path,prompt_path,save_path,True,nudenet_score,'cuda:2')
 
 print('done!!!!')
-# nohup python evaluate.py > SLD-Medium_Disturbing2_eval.log 2>&1 &

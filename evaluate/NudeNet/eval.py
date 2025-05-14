@@ -110,11 +110,11 @@ def eval_imaegs(images_path, csv_path, save_path, ifQ16=False, nudenet_score=0.5
 
 if __name__ == '__main__':
 
-    # 图片文件夹路径
+
     images_path = '/home/users/diffusion/project/prompt-to-prompt-with-sdxl-main/i2p'
-    # prompt 的csv文件路径
+
     csv_path = '/home/users/diffusion/project/EraseConceptBenchmark/dataset/i2p_4703.csv'
-    # 保存结果csv路径
+
     save_path = '/home/users/diffusion/project/prompt-to-prompt-with-sdxl-main/csv_result/SDXL_GIE.csv'
     
     print(images_path)

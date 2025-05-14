@@ -22,11 +22,6 @@ from UCE.generate_images import generate_images as UCEGenerate
 from FMN.generate_images import generate_images as FMNGenerate
 
 
-# model_path = {
-#     'SD14':'/home/users/diffusion/project/DiffusionModel/huggingfacemodels/models--CompVis--stable-diffusion-v1-4/snapshots/133a221b8aa7292a167afc5127cb63fb5005638b'
-# }
-
-# stabilityai/stable-diffusion-3-medium
 
 def SalUn_generate(erase_target,evaluation_task, project_path, prompts_path, save_path, device, steps):
     model_relative_path = f'model/SalUn/nsfw/{erase_target}/nsfw-diffusers.pt'
@@ -69,7 +64,7 @@ def SelfDiscover_generate(evaluation_task, project_path, prompts_path, save_path
 def UCE_generate(evaluation_task, project_path, prompts_path, save_path, device, steps):
     model_relative_path = "model/UCE/nsfw/nudity/erased-nudity-towards_uncond-preserve_false-sd_1_4-method_replace.pt"
     model_path = os.path.join(project_path, model_relative_path)
-    # 这个是整个text encoder的文件夹
+
     if os.path.isfile(model_path):
         UCEGenerate(evaluation_task = evaluation_task, model_name = model_path, prompts_path = prompts_path, save_path = save_path, device = device, ddim_steps = steps, num_samples = 1)
     else:
@@ -114,10 +109,8 @@ def NP_generate(evaluation_task, project_path, prompts_path, save_path, device, 
 
 if __name__ == "__main__":
     erase_concept = 'nudity'
-    prompts_path = '/home/users/diffusion/project/EraseConceptBenchmark/dataset/i2p_4703.csv'
-    save_path = '/home/users/diffusion/project/EraseConceptBenchmark/image_result/nsfw/i2p/SaiUn'
+    prompts_path = '/EraseConceptBenchmark/dataset/i2p_4703.csv'
+    save_path = '/EraseConceptBenchmark/image_result/nsfw/i2p/SaiUn'
 
     SalUnGenerate(erase_concept=erase_concept, prompts_path=prompts_path, save_path=save_path)
     
-
-# nohup python lzw_def.py > SaiUnNudityI2p.log 2>&1 &

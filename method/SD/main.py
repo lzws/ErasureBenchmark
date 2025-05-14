@@ -30,4 +30,3 @@ images2 = pipe(
             ).images
 
 images2[0].save('safe.png')
-# images[1].save('safe.png')

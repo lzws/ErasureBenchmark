@@ -33,13 +33,6 @@ from tqdm import tqdm
 
 
 
-
-# 初始化Accelerator，自动检测并配置硬件资源等用于分布式操作
-
-
-
-
-
 def main(clip_flant5_score,method, version_ec, erase_target, task, images_path,csv_path,save_path,device,keyword):
 
 
@@ -81,9 +74,7 @@ def main(clip_flant5_score,method, version_ec, erase_target, task, images_path,c
 
             score = clip_flant5_score(images=[img_path], texts=[texts[j]])[0]
 
-            # score = model(images=[img_path], texts=texts)[0]
 
-            # max_index = score.argmax(dim=-1).item()
 
             df2.loc[df2.case_number==case_number,f'label-vqa-{j+1}'] = score[0].cpu().item()
 

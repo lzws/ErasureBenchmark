@@ -8,8 +8,8 @@ import glob
 
 def eval_keywords_csv():
 
-    images_path = '/home/users/diffusion/project/EraseConceptBenchmark/tools/keywords/imgs/All'
-    csv_path = '/home/users/diffusion/project/EraseConceptBenchmark/tools/keywords/csv/keyword_Result.csv'
+    images_path = ''
+    csv_path = ''
     df = pd.read_csv(csv_path)
     ifQ16 = True
     nudenet_score = 0.4

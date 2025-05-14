@@ -13,7 +13,7 @@ from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 class Llama():
-    def __init__(self,model_id = '/home/users/diffusion/project/DiffusionModel/huggingfacemodels/Llama-Guard-3-11B-Vision', device = 'cuda:1'):
+    def __init__(self,model_id = 'meta-llama/Llama-Guard-3-11B-Vision', device = 'cuda:1'):
         self.device = device
         self.processor = AutoProcessor.from_pretrained(model_id)
         self.llama_guard = AutoModelForVision2Seq.from_pretrained(
@@ -71,7 +71,7 @@ class Llama():
         )
 
         generated_tokens = output[:, prompt_len:]
-        # print('image name:',image_name)
+
         res = self.processor.decode(generated_tokens[0])
         
         return res
@@ -111,7 +111,7 @@ def eval_images(method, version_ec, erase_target, task, images_path,prompt_path,
 
         # get the res of two classifiers
         if ifNudenet == 1:
-            # print('image: ',img_path)
+
             labels, res_nudenet = nudenet_q16(img_path=img_path)
             nudenet_num += int(labels[1])
             Q16_num += int(labels[0])

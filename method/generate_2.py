@@ -12,7 +12,7 @@ import datetime
 from lzw_def import AdvUnlearn_generate, SalUn_generate, SLD_generate, SelfDiscover_generate, UCE_generate, FMN_generate, NP_generate
 
 project_path = "/home/users/diffusion/project/EraseConceptBenchmark"
-save_image_path = "/home/users/diffusion/project/EraseConceptBenchmark/image_result"
+save_image_path = f"{project_path}/image_result"
 
 steps = 40
 device = "cuda:0"
@@ -24,7 +24,7 @@ version_XL = False
 
 
 if evaluation_task == "i2p":
-    prompts_path = "/home/users/diffusion/project/EraseConceptBenchmark/dataset/i2p_4703.csv"
+    prompts_path = f"{project_path}/dataset/i2p_4703.csv"
     if version_XL:
         save_path = os.path.join(save_image_path,erase_target,"nsfw/i2p_XL",method)
     else:
@@ -32,7 +32,7 @@ if evaluation_task == "i2p":
     if not os.path.isdir(save_path):
 	    os.makedirs(save_path, exist_ok=True)
 elif evaluation_task=="coco":
-    prompts_path = "/home/users/diffusion/project/EraseConceptBenchmark/dataset/coco_10k.csv"
+    prompts_path = f"{project_path}/dataset/coco_10k.csv"
     if version_XL:
         save_path = os.path.join(save_image_path,erase_target+"/coco_10k_XL",method)
     else:
@@ -40,7 +40,7 @@ elif evaluation_task=="coco":
     if not os.path.isdir(save_path):
 	    os.makedirs(save_path, exist_ok=True)
 elif evaluation_task in ["4chan", "Lexica","Template"]:
-    prompts_path = "/home/users/diffusion/project/EraseConceptBenchmark/dataset/"+evaluation_task+".csv"
+    prompts_path = f"{project_path}/dataset/"+evaluation_task+".csv"
     save_path = os.path.join(save_image_path,erase_target,"nsfw",evaluation_task,method)
     if not os.path.isdir(save_path):
 	    os.makedirs(save_path, exist_ok=True)
@@ -72,6 +72,3 @@ else:
     raise ValueError()
 
 
-# nohup python lzw_generate.py > z_log/generate_nudity_FMN_4chan.log 2>&1 &
-# nohup python generate.py > z_log/generate_SD3-5_i2p.log 2>&1 &
-# nohup python lzw_generate.py > FMN_versionXL_coco.log 2>&1 &
