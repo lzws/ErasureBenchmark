@@ -52,4 +52,5 @@ python generate.py --steps 40 --device "cuda" --evaluation_task "i2p" --erase_ta
 3. Generated images will be saved to the `results` directory.
 
 **Evaluation**
-1. We provide all evaluation tool code in the `evaluate` directory. If you use our method to generate images, the evaluation scripts have pre-configured paths. You only need to specify the method name and evaluation task in the code. Otherwise, you must adjust the result directory paths according to your own output structure. We believe this process is straightforward.
+
+We provide all evaluation tool code in the `evaluate` directory. If you use our method to generate images, the evaluation scripts have pre-configured paths. You only need to specify the method name and evaluation task in the code. Otherwise, you must adjust the result directory paths according to your own output structure. We believe this process is straightforward.
