@@ -31,19 +31,20 @@ we conduct extensive experiments and derive practical insights for various appli
 
 
 ## Usage
-'''
+```
 git clone repo
 pip install -r requirements.txt
-'''
+```
 
-** Image generation using different baseline methods
+** Image generation using different baseline methods **
 
 1. Place the trained model weights in the `models` directory. Refer to `method/def.py` for detailed specifications.
 2. Run `method/generate.py` to generate images. Different methods can be invoked by specifying distinct parameters, for example:
-'''
+
+```
 python generate.py --steps 40 --device "cuda" --evaluation_task "i2p" --erase_target "Nudity" --method "SalUn" --version_ec 200 
-'''
+```
 3. Generated images will be saved to the `results` directory.
 
-** Evaluation
+** Evaluation **
 1. We provide all evaluation tool code in the `evaluate` directory. If you use our method to generate images, the evaluation scripts have pre-configured paths. You only need to specify the method name and evaluation task in the code. Otherwise, you must adjust the result directory paths according to your own output structure. We believe this process is straightforward.
