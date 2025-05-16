@@ -4,10 +4,10 @@ import torch.nn as nn
 from transformers import CLIPVisionModelWithProjection, CLIPImageProcessor
 from PIL import Image
 
+project_path = ''
 
-
-projectpath = '/home/users/diffusion/project/EraseConceptBenchmark'
-model_path = '/home/users/diffusion/project/DiffusionModel/huggingfacemodels/clip-vit-large-patch14'
+projectpath = f'{project_path}/EraseConceptBenchmark'
+model_path = f'{project_path}/DiffusionModel/huggingfacemodels/clip-vit-large-patch14'
 file_path = projectpath + '/evaluate/tools/NudeNet/Q16-prompt/prompts.p'
 def load_prompts(device):
     return torch.FloatTensor(pickle.load(open(file_path, 'rb'))).to(device)

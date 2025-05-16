@@ -110,12 +110,12 @@ def eval_imaegs(images_path, csv_path, save_path, ifQ16=False, nudenet_score=0.5
 
 if __name__ == '__main__':
 
+    project_path = ''
+    images_path = f'{project_path}/prompt-to-prompt-with-sdxl-main/i2p'
 
-    images_path = '/home/users/diffusion/project/prompt-to-prompt-with-sdxl-main/i2p'
+    csv_path = f'{project_path}/EraseConceptBenchmark/dataset/i2p_4703.csv'
 
-    csv_path = '/home/users/diffusion/project/EraseConceptBenchmark/dataset/i2p_4703.csv'
-
-    save_path = '/home/users/diffusion/project/prompt-to-prompt-with-sdxl-main/csv_result/SDXL_GIE.csv'
+    save_path = f'{project_path}/prompt-to-prompt-with-sdxl-main/csv_result/SDXL_GIE.csv'
     
     print(images_path)
     eval_imaegs(images_path,csv_path,save_path,True,0.4)

@@ -158,13 +158,13 @@ def main():
     # TODO:
     # Each result is written in a CSV file, and the total number is printed in log
 
-    project_path = '/home/users/diffusion/project/EraseConceptBenchmark'
+    project_path = f''
 
     prompts_path = {
-        'i2p':'/home/users/diffusion/project/EraseConceptBenchmark/dataset/i2p_4703.csv',
-        '4chan':'/home/users/diffusion/project/EraseConceptBenchmark/dataset/4chan.csv',
-        'Lexica':'/home/users/diffusion/project/EraseConceptBenchmark/dataset/Lexica.csv',
-        'Template':'/home/users/diffusion/project/EraseConceptBenchmark/dataset/Template.csv',
+        'i2p':f'{project_path}/EraseConceptBenchmark/dataset/i2p_4703.csv',
+        '4chan':f'{project_path}/EraseConceptBenchmark/dataset/4chan.csv',
+        'Lexica':f'{project_path}/EraseConceptBenchmark/dataset/Lexica.csv',
+        'Template':f'{project_path}/EraseConceptBenchmark/dataset/Template.csv',
     }
 
     tasks = ['i2p','4chan','Lexica','Template']

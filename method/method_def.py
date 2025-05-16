@@ -151,4 +151,125 @@ def AC_generate(erase_target, evaluation_task, version_XL, project_path, prompts
     
 def SafeClip_generate(erase_target, evaluation_task, project_path, prompts_path, save_path, device, steps):
     model_relative_path = "model/SafeGen/nsfw/nudity/SafeGen-Pretrained-Weights"
+
+
+def SalUn_generate(version_ec, erase_target,evaluation_task, project_path, prompts_path, save_path, device, steps):
+    model_relative_path = f'model/SalUn/{erase_target}/{erase_target}-{version_ec}-diffusers.pt'
+    if erase_target == 'all-nsfw':
+        model_relative_path = f'model/SalUn/{erase_target}/{erase_target}-diffusers.pt'
+    model_path = os.path.join(project_path, model_relative_path)
+    if evaluation_task == 'generalization':
+        model_path = f'/shark/zhiwen/benchmark/EraseBenchmark/method/SalUn/erase-models/{erase_target}/{erase_target}-200-diffusers.pt'
+    if os.path.isfile(model_path):
+        SalUnGenerate(evaluation_task = evaluation_task, model_name = model_path, prompts_path = prompts_path, save_path = save_path, device = device, ddim_steps = steps, num_samples = 1)
+    else:
+        print("please download the model from https://github.com/OPTML-Group/Unlearn-Saliency.")
+
+
+# AdvUnlearn
+def AdvUnlearn_generate(version_ec,  erase_target, evaluation_task, project_path, prompts_path, save_path, device, steps):
+    model_relative_path = f'model/AdvUnlearn/{erase_target}/{version_ec}'
+    model_path = os.path.join(project_path, model_relative_path)
+    if evaluation_task == 'generalization':
+        model_path = f'/shark/zhiwen/benchmark/EraseBenchmark/method/AdvUnlearn/results/models/{erase_target}'
+            # 这个是整个text encoder的文件夹
+    if os.path.isfile(model_path)==False:
+        AdvGenerate(version_ec=version_ec, erase_target=erase_target, evaluation_task = evaluation_task, model_name = model_path, prompts_path = prompts_path, save_path = save_path, device = device, ddim_steps = steps, num_samples = 1)
+    else:
+        print("please download the model from https://drive.google.com/drive/folders/1Nf-EJ2W3CsZwpc5blZFi7tm7o1wEiTg4")
+
+def SLD_generate(version_ec,erase_target, evaluation_task, method, project_path, prompts_path, save_path, device, steps):
+
+    if evaluation_task == 'generalization':
+        pass
+    else:
+        erase_target = unsafe_concepts[erase_target][version_ec]
+    SLDGenerate(erase_target,evaluation_task=evaluation_task, prompts_path=prompts_path, save_path=save_path, method=method, device=device,ddim_steps=steps, num_samples=1)
     
+def SelfDiscover_generate(version_ec, erase_target,evaluation_task, project_path, prompts_path, save_path, device, steps):
+    # model_relative_path = f"model/SelfDiscover/nsfw/{erase_target}/checkpoints"
+    model_relative_path = f'model/SelfDiscover/{erase_target}/{version_ec}'
+    if erase_target == 'all-nsfw':
+        model_relative_path = f'model/SelfDiscover/{erase_target}'
+    model_path = os.path.join(project_path, model_relative_path)
+    if evaluation_task == 'generalization':
+        model_path = f'/shark/zhiwen/benchmark/EraseBenchmark/method/SelfDiscover/exps/{erase_target}'
+    if os.path.isdir(model_path):
+        SelfDiscoverGenerate(erase_target=erase_target,evaluation_task = evaluation_task, model_name = model_path, prompts_path = prompts_path, save_path = save_path, device = device, ddim_steps = steps, num_samples = 1)
+    else:
+        print("please download the model from https://github.com/hangligit/InterpretDiffusion")
+
+def UCE_generate(version_ec, erase_target, evaluation_task, project_path, prompts_path, save_path, device, steps):
+
+    model_relative_path = f'model/UCE/{erase_target}/{version_ec}/{erase_target}-{version_ec}.pt'
+    if erase_target == 'all-nsfw':
+        model_relative_path = f'model/UCE/{erase_target}/{version_ec}/{erase_target}-{version_ec}.pt'
+    model_path = os.path.join(project_path, model_relative_path)
+    if evaluation_task == 'generalization':
+        model_path = f'/shark/zhiwen/benchmark/EraseBenchmark/method/UCE/models/{erase_target}/erased-{erase_target}.pt'
+    print('model_path: ',model_path)
+    # 这个是整个text encoder的文件夹
+    if os.path.isfile(model_path):
+        UCEGenerate(erase_target=erase_target, evaluation_task = evaluation_task, model_name = model_path, prompts_path = prompts_path, save_path = save_path, device = device, ddim_steps = steps, num_samples = 1)
+    else:
+        print("please download the model from https://drive.google.com/drive/folders/1Nf-EJ2W3CsZwpc5blZFi7tm7o1wEiTg4")    
+
+def FMN_generate(version_ec, erase_target, evaluation_task,version_XL, project_path, prompts_path, save_path, device, steps):
+    if erase_target == 'all-nsfw':
+        model_relative_path = f'model/FMN/{erase_target}'
+    else:
+        model_relative_path = f'model/FMN/{erase_target}/{version_ec}'
+    model_path = os.path.join(project_path, model_relative_path)
+    if evaluation_task == 'generalization':
+        model_path = f'/shark/zhiwen/benchmark/EraseBenchmark/method/FMN/exps_attn/{erase_target}200'
+    print('model_path: ',model_path)
+    if not os.path.isdir(model_path):
+        print('please train the model through EraseConceptBenchmark/method/train_sh/Nudity/FMN.sh.')
+        print('All training related hyperparameters can be found here: EraseConceptBenchmark/model/FMN/configs/attn_nudity.yaml')
+    else:
+        FMNGenerate(evaluation_task = evaluation_task, model_name = model_path, prompts_path = prompts_path, save_path = save_path, device = device, ddim_steps = steps, num_samples = 1)
+
+def NP_generate(version_ec,erase_target,evaluation_task, project_path, prompts_path, save_path, device, steps):
+
+    # erase_target = unsafe_concepts[erase_target][version_ec]
+    if evaluation_task != 'generalization':
+        erase_target = unsafe_concepts[erase_target][version_ec]
+    print(f'NP erase target:{erase_target}, save path: {save_path}')
+    pipe = StableDiffusionPipeline.from_pretrained('/shark/zhiwen/benchmark/models/stable-diffusion-v1-4').to(device)
+    pipe.safety_checker = None
+    negative_prompt = [erase_target]
+    df = pd.read_csv(prompts_path)
+    start_index = 0
+    for _,row in df.iterrows():
+        if _ < start_index:
+            continue
+        prompt = [str(row.prompt)]
+        seed = row.seed
+
+        if evaluation_task == "coco":
+            case_number = row.image_id
+        else:
+            case_number = row.case_number
+        
+        if evaluation_task == 'generalization':
+            keyword = row.keyword
+            os.makedirs(save_path+'/'+keyword, exist_ok=True)
+        else:
+            keyword = ""
+
+        
+        
+        if os.path.isfile(save_path+'/'+str(case_number)+".png"):
+            print(f"{case_number}.png exist!")
+            continue
+        
+        generator = torch.manual_seed(seed)
+        image = pipe(
+            prompt=prompt, generator = generator, guidance_scale=7.5,
+            negative_prompt=negative_prompt,
+            num_inference_steps=steps
+        ).images[0]
+        if evaluation_task == 'generalization':
+            image.save(f"{save_path}/{keyword}/{case_number}.png")
+        else:
+            image.save(f"{save_path}/{case_number}.png")

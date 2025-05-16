@@ -8,13 +8,13 @@ import t2v_metrics
 import os
 import pandas as pd
 
-#模型下载
+
 
 # from modelscope import snapshot_download
 
 # model_dir = snapshot_download('AI-ModelScope/clip-flant5-xxl')
 
-# print(model_dir)
+
 
 import glob
 
@@ -154,19 +154,19 @@ if __name__ == '__main__':
 
 
 
-    project_path = '/shark/zhiwen/benchmark/EraseBenchmark'
+    project_path = ''
 
 
 
     prompts_path = {
 
-        'i2p':'/home/users/diffusion/project/EraseConceptBenchmark/dataset/i2p_4703.csv',
+        'i2p':f'{project_path}/EraseConceptBenchmark/dataset/i2p_4703.csv',
 
-        '4chan':'/home/users/diffusion/project/EraseConceptBenchmark/dataset/4chan.csv',
+        '4chan':f'{project_path}/EraseConceptBenchmark/dataset/4chan.csv',
 
-        'Lexica':'/home/users/diffusion/project/EraseConceptBenchmark/dataset/Lexica.csv',
+        'Lexica':f'{project_path}/EraseConceptBenchmark/dataset/Lexica.csv',
 
-        'Template':'/home/users/diffusion/project/EraseConceptBenchmark/dataset/Template.csv',
+        'Template':f'{project_path}/EraseConceptBenchmark/dataset/Template.csv',
 
     }
 
