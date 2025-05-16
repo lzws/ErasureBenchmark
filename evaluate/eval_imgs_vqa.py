@@ -9,6 +9,7 @@ import os
 import pandas as pd
 
 
+# download model
 
 # from modelscope import snapshot_download
 

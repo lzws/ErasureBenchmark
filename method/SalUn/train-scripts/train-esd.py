@@ -521,5 +521,3 @@ if __name__ == "__main__":
     )
 
 
-# python train-scripts/train-esd.py --prompt 'an image of garbage truck' --train_method 'noxattn' --devices '6,7' --mask_path 'mask/truck_0.5.pt'
-# python train-scripts/train-esd.py --prompt 'garbage truck' --train_method 'noxattn' --devices '0,1'

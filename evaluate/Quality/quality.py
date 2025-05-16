@@ -18,7 +18,7 @@ def get_clip_score(image_path, text, model, processor, device):
     return logits_per_image
 
 def compute_clip_score(prompts_path, save_image_path, method, version_ec, erase_target, device, start_index=0):
-    model_path = "/home/users/diffusion/project/DiffusionModel/huggingfacemodels/clip-vit-large-patch14"
+    model_path = "clip-vit-large-patch14"
     model = CLIPModel.from_pretrained(model_path).to(device)
     processor = CLIPProcessor.from_pretrained(model_path)
     if method in ["SD1-4", "SD2-1", "SDXL","SD3", "SD3-5"]:

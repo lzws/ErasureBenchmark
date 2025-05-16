@@ -428,5 +428,3 @@ if __name__ == "__main__":
         image_size,
         ddim_steps,
     )
-
-    # python train-scripts/certain_label.py --class_to_forget "6" --train_method full --device "7" --lr 1e-5 --mask_path "mask/truck_0.5.pt"

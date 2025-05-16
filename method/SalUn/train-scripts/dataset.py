@@ -99,9 +99,8 @@ class NOT_NSFW(Dataset):
         return image
 
 
-# 通过配置文件和权重文件加载模型
-# config_path default="configs/stable-diffusion/v1-inference.yaml"
-# ckpt_path default="models/ldm/stable-diffusion-v1/epoch=000050.ckpt"
+
+
 def setup_model(config, ckpt, device):
     """Loads a model from config and a ckpt
     if config is a path will use omegaconf to load

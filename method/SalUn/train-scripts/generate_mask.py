@@ -342,33 +342,33 @@ if __name__ == "__main__":
         default=1000,
     )
 
-    # 擦除某个类或者是擦除nsfw内容 
+
     parser.add_argument(
         "--nsfw", help="class or nsfw", type=bool, required=False, default=False
     )
     args = parser.parse_args()
 
     # classes = [int(d) for d in args.classes.split(',')]
-    # 要擦除类的个数
+
     classes = int(args.classes)
     print(classes)
-    # classifier free 的引导参数  默认是7.5
+    # classifier free 
     c_guidance = args.c_guidance
-    # 训练参数 batchsize epochs lr
+
     batch_size = args.batch_size
     epochs = args.epochs
     lr = args.lr
 
-    # stable diffusion的配置文件路劲
+
     config_path = args.config_path
-    # sd权重文件的路径
+
     ckpt_path = args.ckpt_path
-    # diffusers的unet配置文件路径
+
     diffusers_config_path = args.diffusers_config_path
     device = f"cuda:{int(args.device)}"
-    # 图片的size
+
     image_size = args.image_size
-    # 推理的时候扩散多少步
+
     num_timesteps = args.num_timesteps
 
     if args.nsfw:
@@ -399,6 +399,3 @@ if __name__ == "__main__":
             image_size,
             num_timesteps,
         )
-
-    # python train-scripts/generate_mask.py --classes "6" --device "7"
-    # python train-scripts/generate_mask.py --nsfw True --ckpt_path "models/ldm/stable-diffusion-v1/sd-v1-4-full-ema.ckpt" --device "7"

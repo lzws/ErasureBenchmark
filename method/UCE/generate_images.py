@@ -18,7 +18,7 @@ def generate_images(evaluation_task, model_name, prompts_path, save_path, device
     text_encoder = CLIPTextModel.from_pretrained(model_version, subfolder="text_encoder")
 
     # 3. The UNet model for generating the latents.
-#     name = 'compvis-word_VanGogh-method_xattn-sg_3-ng_1-iter_1000-lr_1e-05'
+
     unet = UNet2DConditionModel.from_pretrained(model_version, subfolder="unet")
     if model_name != 'original':
         # model_path = f'models/{model_name}'

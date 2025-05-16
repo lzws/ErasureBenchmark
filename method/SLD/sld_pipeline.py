@@ -421,7 +421,7 @@ class SLDPipeline(DiffusionPipeline):
         # Unlike in other pipelines, latents need to be generated in the target device
         # for 1-to-1 results reproducibility with the CompVis implementation.
         # However this currently doesn't work in `mps`.
-        # 产生初始随机噪声
+
         latents_shape = (batch_size * num_images_per_prompt, self.unet.in_channels, height // 8, width // 8)
         latents_dtype = text_embeddings.dtype
         if latents is None:
@@ -455,7 +455,7 @@ class SLDPipeline(DiffusionPipeline):
         # eta (η) is only used with the DDIMScheduler, it will be ignored for other schedulers.
         # eta corresponds to η in DDIM paper: https://arxiv.org/abs/2010.02502
         # and should be between [0, 1]
-        # 额外参数，不用管
+
         accepts_eta = "eta" in set(inspect.signature(self.scheduler.step).parameters.keys())
         extra_step_kwargs = {}
         if accepts_eta:
@@ -468,7 +468,7 @@ class SLDPipeline(DiffusionPipeline):
 
         safety_momentum = None
 
-        # 开始扩散
+
         for i, t in enumerate(self.progress_bar(timesteps_tensor)):
             # expand the latents if we are doing classifier free guidance
             latent_model_input = torch.cat([latents] * (3 if enable_safety_guidance else 2)) \
@@ -527,11 +527,11 @@ class SLDPipeline(DiffusionPipeline):
 
                         noise_guidance = noise_guidance - noise_guidance_safety
 
-                # 最终的预测噪声
+   
                 noise_pred = noise_pred_uncond + guidance_scale * noise_guidance
 
                 # compute the previous noisy sample x_t -> x_t-1
-            # 去噪 得到latents    
+  
             latents = self.scheduler.step(noise_pred, t, latents, **extra_step_kwargs).prev_sample
 
             # call the callback, if provided

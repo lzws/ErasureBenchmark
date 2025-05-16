@@ -509,6 +509,3 @@ if __name__ == "__main__":
         image_size=image_size,
         ddim_steps=ddim_steps,
     )
-
-# python train-scripts/nsfw_removal.py --train_method 'full' --device '1'
-# python train-scripts/nsfw_removal.py --train_method 'full' --device '1' --mask_path 'mask/nude_0.5.pt'

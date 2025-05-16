@@ -344,7 +344,7 @@ def train(
         optimizer.step()
         lr_scheduler.step()
 
-        # 1000倍しないとずっと0.000...になってしまって見た目的に面白くない
+     
         pbar.set_description(f"Loss*1k: {loss['loss'].item()*1000:.4f}")
 
         # logging

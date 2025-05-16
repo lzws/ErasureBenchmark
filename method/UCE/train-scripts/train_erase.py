@@ -121,7 +121,7 @@ def generate_for_text(ldm_stable, test_text, num_samples = 9, seed = 1231):
     g.manual_seed(seed)
     images = text2image_ldm_stable(ldm_stable, [test_text]*num_samples, latent=None, num_inference_steps=NUM_DIFFUSION_STEPS, guidance_scale=GUIDANCE_SCALE, generator=g, low_resource=LOW_RESOURCE)
     return view_images(images)
-clip_path = '/home/users/diffusion/project/DiffusionModel/huggingfacemodels/clip-vit-base-patch32'
+clip_path = 'clip-vit-base-patch32'
 clip_model = CLIPModel.from_pretrained(clip_path)
 clip_processor = CLIPProcessor.from_pretrained(clip_path)
 
@@ -427,7 +427,6 @@ if __name__ == '__main__':
     if preserve_scale is None:
         preserve_scale = max(0.1, 1/len(retain_texts))
     sd14="CompVis/stable-diffusion-v1-4"
-    # sd14='/home/users/diffusion/project/DiffusionModel/huggingfacemodels/models--CompVis--stable-diffusion-v1-4/snapshots/133a221b8aa7292a167afc5127cb63fb5005638b'
     sd21='stabilityai/stable-diffusion-2-1-base'
     if args.base=='1.4':
         model_version = sd14
@@ -445,5 +444,3 @@ if __name__ == '__main__':
     torch.save(ldm_stable.unet.state_dict(), f'models/erased-{print_text}.pt')
     with open(f'info/erased-{print_text}.txt', 'w') as fp:
         json.dump(concepts,fp)
-
-# python train-scripts/train_erase.py --concepts 'nudity' --device '0' --concept_type 'unsafe'

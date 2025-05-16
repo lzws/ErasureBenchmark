@@ -1,5 +1,6 @@
-from tools import eval
-from tools import Eval
+from .NudeNet.eval import eval_imaegs
+from .NudeNet import eval
+from .NudeNet.eval import Eval,__labels
 import pandas as pd
 
 import os

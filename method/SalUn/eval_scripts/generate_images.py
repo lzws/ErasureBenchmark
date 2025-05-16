@@ -13,7 +13,7 @@ from PIL import Image
 from transformers import CLIPTextModel, CLIPTokenizer
 
 model_path = {
-    'SD14':'/home/users/diffusion/project/DiffusionModel/huggingfacemodels/models--CompVis--stable-diffusion-v1-4/snapshots/133a221b8aa7292a167afc5127cb63fb5005638b'
+    'SD14':'models--CompVis--stable-diffusion-v1-4'
 }
 
 def generate_images(
