@@ -159,7 +159,7 @@ def SalUn_generate(version_ec, erase_target,evaluation_task, project_path, promp
         model_relative_path = f'model/SalUn/{erase_target}/{erase_target}-diffusers.pt'
     model_path = os.path.join(project_path, model_relative_path)
     if evaluation_task == 'generalization':
-        model_path = f'/shark/zhiwen/benchmark/EraseBenchmark/method/SalUn/erase-models/{erase_target}/{erase_target}-200-diffusers.pt'
+        model_path = f'/EraseBenchmark/method/SalUn/erase-models/{erase_target}/{erase_target}-200-diffusers.pt'
     if os.path.isfile(model_path):
         SalUnGenerate(evaluation_task = evaluation_task, model_name = model_path, prompts_path = prompts_path, save_path = save_path, device = device, ddim_steps = steps, num_samples = 1)
     else:
@@ -171,8 +171,8 @@ def AdvUnlearn_generate(version_ec,  erase_target, evaluation_task, project_path
     model_relative_path = f'model/AdvUnlearn/{erase_target}/{version_ec}'
     model_path = os.path.join(project_path, model_relative_path)
     if evaluation_task == 'generalization':
-        model_path = f'/shark/zhiwen/benchmark/EraseBenchmark/method/AdvUnlearn/results/models/{erase_target}'
-            # 这个是整个text encoder的文件夹
+        model_path = f'/EraseBenchmark/method/AdvUnlearn/results/models/{erase_target}'
+
     if os.path.isfile(model_path)==False:
         AdvGenerate(version_ec=version_ec, erase_target=erase_target, evaluation_task = evaluation_task, model_name = model_path, prompts_path = prompts_path, save_path = save_path, device = device, ddim_steps = steps, num_samples = 1)
     else:
@@ -193,7 +193,7 @@ def SelfDiscover_generate(version_ec, erase_target,evaluation_task, project_path
         model_relative_path = f'model/SelfDiscover/{erase_target}'
     model_path = os.path.join(project_path, model_relative_path)
     if evaluation_task == 'generalization':
-        model_path = f'/shark/zhiwen/benchmark/EraseBenchmark/method/SelfDiscover/exps/{erase_target}'
+        model_path = f'EraseBenchmark/method/SelfDiscover/exps/{erase_target}'
     if os.path.isdir(model_path):
         SelfDiscoverGenerate(erase_target=erase_target,evaluation_task = evaluation_task, model_name = model_path, prompts_path = prompts_path, save_path = save_path, device = device, ddim_steps = steps, num_samples = 1)
     else:
@@ -206,7 +206,7 @@ def UCE_generate(version_ec, erase_target, evaluation_task, project_path, prompt
         model_relative_path = f'model/UCE/{erase_target}/{version_ec}/{erase_target}-{version_ec}.pt'
     model_path = os.path.join(project_path, model_relative_path)
     if evaluation_task == 'generalization':
-        model_path = f'/shark/zhiwen/benchmark/EraseBenchmark/method/UCE/models/{erase_target}/erased-{erase_target}.pt'
+        model_path = f'/EraseBenchmark/method/UCE/models/{erase_target}/erased-{erase_target}.pt'
     print('model_path: ',model_path)
     # 这个是整个text encoder的文件夹
     if os.path.isfile(model_path):
@@ -221,7 +221,7 @@ def FMN_generate(version_ec, erase_target, evaluation_task,version_XL, project_p
         model_relative_path = f'model/FMN/{erase_target}/{version_ec}'
     model_path = os.path.join(project_path, model_relative_path)
     if evaluation_task == 'generalization':
-        model_path = f'/shark/zhiwen/benchmark/EraseBenchmark/method/FMN/exps_attn/{erase_target}200'
+        model_path = f'method/FMN/exps_attn/{erase_target}200'
     print('model_path: ',model_path)
     if not os.path.isdir(model_path):
         print('please train the model through EraseConceptBenchmark/method/train_sh/Nudity/FMN.sh.')
@@ -235,7 +235,7 @@ def NP_generate(version_ec,erase_target,evaluation_task, project_path, prompts_p
     if evaluation_task != 'generalization':
         erase_target = unsafe_concepts[erase_target][version_ec]
     print(f'NP erase target:{erase_target}, save path: {save_path}')
-    pipe = StableDiffusionPipeline.from_pretrained('/shark/zhiwen/benchmark/models/stable-diffusion-v1-4').to(device)
+    pipe = StableDiffusionPipeline.from_pretrained('/models/stable-diffusion-v1-4').to(device)
     pipe.safety_checker = None
     negative_prompt = [erase_target]
     df = pd.read_csv(prompts_path)
