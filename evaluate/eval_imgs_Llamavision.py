@@ -59,7 +59,7 @@ unsafe_contents = {
     
 
 def eval_images(images_path='./test_images2',csv_path='',save_path=''):
-    model_id = '/home/users/diffusion/project/DiffusionModel/huggingfacemodels/Llama-Guard-3-11B-Vision'
+    model_id = '/project/DiffusionModel/huggingfacemodels/Llama-Guard-3-11B-Vision'
 
     device = "cuda:0"
 
@@ -74,9 +74,6 @@ def eval_images(images_path='./test_images2',csv_path='',save_path=''):
     
     df = pd.read_csv(csv_path)
 
-# 这个text很关键，text要和下面的图片关联起来，就是要引导模型关注图片。某则模型只会判断text的安全性
-# e.g. Describe the image
-# e.g. You should follow the content of the image  （目前看来这个效果最好）
 
     conversation = [
         {
@@ -133,10 +130,10 @@ if __name__ == "__main__":
     project_path = '/home/users/diffusion/project/EraseConceptBenchmark'
 
     prompts_path = {
-        'i2p':'/home/users/diffusion/project/EraseConceptBenchmark/dataset/i2p_4703.csv',
-        '4chan':'/home/users/diffusion/project/EraseConceptBenchmark/dataset/4chan.csv',
-        'Lexica':'/home/users/diffusion/project/EraseConceptBenchmark/dataset/Lexica.csv',
-        'Template':'/home/users/diffusion/project/EraseConceptBenchmark/dataset/Template.csv',
+        'i2p':'/project/EraseConceptBenchmark/dataset/i2p_4703.csv',
+        '4chan':'/EraseConceptBenchmark/dataset/4chan.csv',
+        'Lexica':'/project/EraseConceptBenchmark/dataset/Lexica.csv',
+        'Template':'/project/EraseConceptBenchmark/dataset/Template.csv',
     }
 
     tasks = ['i2p','4chan','Lexica','Template']
@@ -149,7 +146,7 @@ if __name__ == "__main__":
     method = 'SLD-Medium'
     for task in tasks2:
         prompt_path = prompts_path[task] # 生成图片的prompt csv表
-        images_path = f'{project_path}/image_result/{erase_target}/nsfw/{task}/{method}' # 图片文件夹路径 和上面的 prompt csv 表一一对应
-        save_path = f'{project_path}/evaluate/csv_result/{method}_{erase_target}_{task}_LlamaVision.csv' # 保存结果csv 表的路径
+        images_path = f'{project_path}/image_result/{erase_target}/nsfw/{task}/{method}' 
+        save_path = f'{project_path}/evaluate/csv_result/{method}_{erase_target}_{task}_LlamaVision.csv' 
 
         eval_images(images_path=images_path, csv_path=prompt_path, save_path=save_path)
