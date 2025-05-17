@@ -1,4 +1,3 @@
-# nohup python /home/users/diffusion/project/EraseConceptBenchmark/method/generate.py > /home/users/diffusion/project/EraseConceptBenchmark/method/generate.log 2>&1 &
 
 from diffusers import StableDiffusionPipeline
 import torch
@@ -113,8 +112,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Image generation with concept erasure methods")
 
     # Arguments
-    parser.add_argument("--project_path", type=str, default="/shark/zhiwen/benchmark/EraseBenchmark")
-    parser.add_argument("--save_image_path", type=str, default="/shark/zhiwen/benchmark/EraseBenchmark/image_result", help="Path to save the generated images")
+    parser.add_argument("--project_path", type=str, default="/EraseBenchmark")
+    parser.add_argument("--save_image_path", type=str, default="/EraseBenchmark/image_result", help="Path to save the generated images")
     parser.add_argument("--steps", type=int, default=40, help="Number of diffusion steps")
     parser.add_argument("--device", type=str, default="cuda:0", required=True, help="Device for computation (e.g., cuda:0, cpu)")
     parser.add_argument("--evaluation_task", type=str, choices=["i2p", "4chan", "Lexica", "Template", "coco", "RAB2","generalization"], required=True, help="Evaluation task")
