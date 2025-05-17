@@ -17,7 +17,7 @@ from method_def import *
 # select:["AdvUnlearn","SalUn","SLD-Max","SLD-Strong","SLD-Medium","SelfDiscover","FMN","NP"]
 
 
-# 设置命令行参数
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Script to generate images with content erasure methods.")
     parser.add_argument('--steps', type=int, default=40, help='Number of steps for the diffusion process')
